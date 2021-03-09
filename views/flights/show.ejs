@@ -15,5 +15,22 @@
     <div><strong>Departure Date </strong><%= flight.departs %></div>
     <div><strong>Destination: </strong><%= flight.destination %></div>
 
+    <h2>Add Destination:</h2>
+     <form action = "/flight/show" method ="POST">
+        <select name='airport'>
+            <option value = "ATL">ATL</option>
+            <option value = "DFW">DFW</option>
+            <option value = "DEN">DEN</option>
+            <option value = "LAX">LAX</option>
+            <option value = "SAN">SAN</option><br>
+            <label>Arrives
+                <input type='date' name='arrives'>
+            </input>
+            </label><br>
+            <input type="submit" value="Add Destination">
+        </select>
+    </form>
+
+
 </body>
 </html>
