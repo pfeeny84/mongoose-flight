@@ -3,8 +3,20 @@ module.exports = {
     new: newFlight,
     create,
     index,
-    show
+    show,
+    delete: deleteFlight
 }
+
+function deleteFlight(req,res) {
+    Flight.findByIdAndDelete(req.params.id, function(){
+        res.redirect('/flights');
+
+    });
+    // Flight.deleteMany({}, function(){
+    //     res.redirect('/flights');
+    // })
+}
+
 function index(req, res){
     Flight.find({}, function(err, flightDocuments){
         // console.log(flightDocuments)
@@ -60,6 +72,7 @@ function newFlight(req, res){
 
 function show(req, res){
     Flight.findById(req.params.id, function(err, flightDoc){
+        console.log(flightDoc);
         res.render('flights/show', {flight: flightDoc})
     })  
 }

@@ -12,11 +12,18 @@
     <div><strong>Airline: </strong><%= flight.airline %></div>
     <div><strong>Airport: </strong><%= flight.airport %></div>
     <div><strong>Flight #: </strong><%= flight.flightNo %></div>
-    <div><strong>Departure Date </strong><%= flight.departs %></div>
-    <div><strong>Destination: </strong><%= flight.destination %></div>
-
+    <div><strong>Departure Date: </strong><%= flight.departs %></div>
+    <div><strong>Destination: </strong>
+    <% flight.destinations.forEach(function(d){ %>
+         
+          
+          <%= d.airport %> <%= d.arrival %><br>
+          
+      <% }) %>
+    </div>
     <h2>Add Destination:</h2>
-     <form action = "/flight/show" method ="POST">
+    
+     <form action = "/flights/destinations/<%= flight.id %>" method ="POST">
         <select name='airport'>
             <option value = "ATL">ATL</option>
             <option value = "DFW">DFW</option>
@@ -24,11 +31,16 @@
             <option value = "LAX">LAX</option>
             <option value = "SAN">SAN</option><br>
             <label>Arrives
-                <input type='date' name='arrives'>
-            </input>
+                <input type='date' name='arrival'>
+            </input><br>
             </label><br>
             <input type="submit" value="Add Destination">
         </select>
+    </form>
+    
+    <h3>Delete Flight</h3>
+    <form action = "/flights/<%= flight.id %>?_method=DELETE" class = "delete-form" method = "POST">
+    <button type="submit">X</button>
     </form>
 
 
