@@ -25,6 +25,15 @@
           
       <% }) %>
     </div>
+    <div><strong>Tickets:</strong></div>
+    <div><% ticket.forEach(function(t){ %>
+         
+          
+        <%= t.price %> <%= t.seat %><br>
+        
+    <% }) %>
+    </div>
+    <a href="/flights/tickets/<%= flight._id %>">Purchase Ticket</a>
     <h2>Add Destination:</h2>
     
      <form action = "/flights/destinations/<%= flight.id %>" method ="POST">

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Ticket</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/flights">All Flights</a>
+        <a href="/flights/new">New Flight</a>
+      </div>
+    <h1>Purchase Ticket:</h1>
+    <form action="/flights/tickets/<%= flight._id %>" method="POST">
+      <input name="price" placeholder="Enter Price">
+      <input name="seat" required pattern="[A-F][1-9]\d?" placeholder="A-F 1-9">
+      <input type="submit" value="Add Seat">
+    </form>
+</body>
+</html>
